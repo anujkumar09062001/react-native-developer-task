@@ -2,38 +2,41 @@ import React from 'react'
 import { Image } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { TouchableWithoutFeedback } from 'react-native';
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, onPress }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerContainer}>
-          <Image source={post.image} />
-          <View style={styles.headerContent} >
-            <Text style={styles.title}>{post.name}</Text>
-            <Text style={styles.subTitle}>{post.timeInMins}mins ago</Text></View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.headerContainer}>
+            <Image source={post.image} />
+            <View style={styles.headerContent} >
+              <Text style={styles.title}>{post.name}</Text>
+              <Text style={styles.subTitle}>{post.timeInMins}mins ago</Text></View>
+          </View>
+          <View>
+            <MaterialCommunityIcons name="dots-horizontal" size={24} color="white" />
+          </View>
         </View>
-        <View>
-          <MaterialCommunityIcons name="dots-horizontal" size={24} color="white" />
-        </View>
-      </View>
 
-      <View style={styles.body}>
-        <View style={styles.bodyLogo}>
-          <Text>{post.quoteLogo}</Text>
+        <View style={styles.body}>
+          <View style={styles.bodyLogo}>
+            <Text>{post.quoteLogo}</Text>
+          </View>
+          <View>
+            <Text style={styles.bodyText}>
+              {post.quote}
+            </Text>
+          </View>
         </View>
-        <View>
-          <Text style={styles.bodyText}>
-            {post.quote}
-          </Text>
-        </View>
-      </View>
 
-      <View style={styles.footer}>
-        <MaterialCommunityIcons name="comment-outline" size={24} color="#C5C7CA" />
-        <Text style={styles.footerText}>{post.comment} comments</Text>
+        <View style={styles.footer}>
+          <MaterialCommunityIcons name="comment-outline" size={24} color="#C5C7CA" />
+          <Text style={styles.footerText}>{post.comment} comments</Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 

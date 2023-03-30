@@ -1,31 +1,34 @@
 import React from 'react'
+import { TouchableWithoutFeedback } from 'react-native';
 import { View, Text, StyleSheet } from 'react-native'
 import { Pressable } from 'react-native';
 
-const CreatePost = () => {
+const CreatePost = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Create Post</Text>
-      </View>
-
-      <View style={styles.body}>
-        <View style={styles.bodyLogo}>
-          <Text>💬</Text>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate('Register')}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Create Post</Text>
         </View>
-        <View>
-          <Text style={styles.bodyText}>
-            How are you feeling today?
-          </Text>
+
+        <View style={styles.body}>
+          <View style={styles.bodyLogo}>
+            <Text>💬</Text>
+          </View>
+          <View>
+            <Text style={styles.bodyText}>
+              How are you feeling today?
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.footer}>
+          <Pressable>
+            <Text style={styles.buttonTest}>Post</Text>
+          </Pressable>
         </View>
       </View>
-
-      <View style={styles.footer}>
-        <Pressable>
-          <Text style={styles.buttonTest}>Post</Text>
-        </Pressable>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 

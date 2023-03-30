@@ -1,12 +1,11 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import PostCard from './PostCard';
 import ImageTheresa from '../../assets/img/user1.png';
 import ImageMarvin from '../../assets/img/user2.png';
 import CreatePost from './CreatePost'
-import { ScrollView } from 'react-native'
 
 const data = [
   {
@@ -27,18 +26,18 @@ const data = [
   },
 ]
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.title}>Hello Jane</Text>
         <Text style={styles.subTitle}>How are you doing today? Would you like to share
           something with the community 🤗</Text>
-        <CreatePost />
+        <CreatePost navigation={navigation} />
         <FlatList
           data={data}
           renderItem={({ item }) => (
-            <PostCard post={item} />
+            <PostCard post={item} onPress={() => navigation.navigate('Register')} />
           )}
           scrollEnabled={false}
         />
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   subTitle: {
     color: 'lightgrey',
     marginTop: 15,
-  },
+  }
 })
 
 export default Home
