@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import PostCard from './PostCard';
 import ImageTheresa from '../../assets/img/user1.png';
 import ImageMarvin from '../../assets/img/user2.png';
-import CreatePost from './CreatePost'
+import CreatePost from './CreatePost';
 
 const data = [
   {

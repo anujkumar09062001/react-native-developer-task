@@ -4,7 +4,7 @@ import InputField from '../../components/InputField'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Register = ({ navigation }) => {
   return (
     <View style={styles.modalView}>
       <View style={styles.modalClose}>
@@ -12,23 +12,24 @@ const Login = ({ navigation }) => {
           onPress={() => navigation.navigate('Home')} style={styles.modalCloseIcon} />
       </View>
       <View style={styles.header}>
-        <Text style={styles.title}>WELCOME BACK</Text>
-        <Text style={styles.subTitle}>Log into your account</Text>
+        <Text style={styles.title}>SIGN UP</Text>
+        <Text style={styles.subTitle}>Create an account to continue</Text>
       </View>
       <View style={styles.inputField}>
-        <InputField title='Email or Username' placeholder='Enter your email' />
-        <InputField title='Password' subTitle='Forgot password?'
+        <InputField title='Email' placeholder='Enter your email' />
+        <InputField title='Username' placeholder='Choose a preferred username' />
+        <InputField title='Password'
           placeholder='Choose a preferred password'
           icon={<MaterialCommunityIcons name="eye" size={24} color="white" />} />
         <View style={styles.buttonContainer}>
           <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Login now</Text>
+            <Text style={styles.buttonText}>Continue</Text>
           </Pressable>
         </View>
-        <TouchableWithoutFeedback onPress={() => navigation.replace('Register')}>
+        <TouchableWithoutFeedback onPress={() => navigation.replace('Login')}>
           <View style={styles.footer}>
-            <Text style={styles.notRegister}>Not registered yet? </Text>
-            <Text style={styles.register}>Register →</Text>
+            <Text style={styles.notRegister}>Already have an account? </Text>
+            <Text style={styles.register}>Login →</Text>
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -101,4 +102,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Login
+export default Register
