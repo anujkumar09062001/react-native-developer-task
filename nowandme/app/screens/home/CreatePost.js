@@ -10,7 +10,9 @@ const CreatePost = () => {
       </View>
 
       <View style={styles.body}>
-        <View style={styles.bodyLogo} />
+        <View style={styles.bodyLogo}>
+          <Text>💬</Text>
+        </View>
         <View>
           <Text style={styles.bodyText}>
             How are you feeling today?
@@ -61,7 +63,10 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#27292D'
+    backgroundColor: '#27292D',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   bodyText: {
     color: '#7F8084',

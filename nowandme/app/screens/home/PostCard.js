@@ -3,7 +3,7 @@ import { Image } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Card = ({ post }) => {
+const PostCard = ({ post }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,7 +19,9 @@ const Card = ({ post }) => {
       </View>
 
       <View style={styles.body}>
-        <View style={styles.bodyLogo} />
+        <View style={styles.bodyLogo}>
+          <Text>{post.quoteLogo}</Text>
+        </View>
         <View>
           <Text style={styles.bodyText}>
             {post.quote}
@@ -78,7 +80,10 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#27292D'
+    backgroundColor: '#27292D',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   bodyText: {
     color: '#7F8084',
@@ -96,4 +101,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Card
+export default PostCard
