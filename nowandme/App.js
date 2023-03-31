@@ -26,8 +26,8 @@ export default function App() {
     <NavigationContainer>
       <RootStack.Navigator>
         <RootStack.Group screenOptions={{ headerShown: false }}>
-          <RootStack.Screen name='Login' component={Login} />
           <RootStack.Screen name='Home' component={Home} />
+          <RootStack.Screen name='Login' component={Login} />
         </RootStack.Group>
         <RootStack.Group
           screenOptions={{
