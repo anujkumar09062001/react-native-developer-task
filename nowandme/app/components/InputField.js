@@ -1,7 +1,8 @@
 import React from 'react'
+import { TouchableWithoutFeedback } from 'react-native'
 import { Text, TextInput, View, StyleSheet } from 'react-native'
 
-const InputField = ({ title, subTitle, placeholder, icon }) => {
+const InputField = ({ title, subTitle, placeholder, showPassword, icon, onPressIcon }) => {
   return (
     <View style={styles.container}>
       <View style={styles.labelContainer}>
@@ -14,10 +15,12 @@ const InputField = ({ title, subTitle, placeholder, icon }) => {
       </View>
       <View>
         <TextInput placeholder={placeholder} placeholderTextColor='#7F8084'
-          style={styles.input} />
-        <View style={styles.icon}>
-          {icon}
-        </View>
+          style={styles.input} secureTextEntry={!showPassword} />
+        <TouchableWithoutFeedback onPress={onPressIcon}>
+          <View style={styles.icon}>
+            {icon}
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     </View>
   )

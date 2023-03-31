@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, View, StyleSheet, Pressable } from 'react-native'
 import InputField from '../../components/InputField'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native';
 
 const Login = ({ navigation }) => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <View style={styles.modalView}>
       <View style={styles.modalClose}>
@@ -19,7 +20,14 @@ const Login = ({ navigation }) => {
         <InputField title='Email or Username' placeholder='Enter your email' />
         <InputField title='Password' subTitle='Forgot password?'
           placeholder='Choose a preferred password'
-          icon={<MaterialCommunityIcons name="eye" size={24} color="white" />} />
+          showPassword={showPassword}
+          icon={showPassword ?
+            <MaterialCommunityIcons name="eye" size={24} color="white" />
+            :
+            <MaterialCommunityIcons name="eye-off" size={24} color="white" />
+          }
+          onPressIcon={() => setShowPassword(!showPassword)}
+        />
         <View style={styles.buttonContainer}>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>Login now</Text>
