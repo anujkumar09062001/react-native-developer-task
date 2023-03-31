@@ -3,74 +3,82 @@ import { Text, View, StyleSheet } from 'react-native'
 import InputField from '../../components/InputField'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import Logo from '../../assets/img/Logo.png';
+import { Image } from 'react-native';
 
 const Login = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <View style={styles.modalView}>
-      <View style={styles.modalClose}>
-        <MaterialCommunityIcons name="close-thick" size={20} color="white"
-          onPress={() => navigation.navigate('Home')} style={styles.modalCloseIcon} />
+    <View style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image source={Logo} />
       </View>
-      <View style={styles.header}>
-        <Text style={styles.title}>WELCOME BACK</Text>
-        <Text style={styles.subTitle}>Log into your account</Text>
-      </View>
-      <View style={styles.inputField}>
-        <InputField title='Email or Username' placeholder='Enter your email' />
-        <InputField title='Password' subTitle='Forgot password?'
-          placeholder='Choose a preferred password'
-          showPassword={showPassword}
-          icon={showPassword ?
-            <MaterialCommunityIcons name="eye" size={24} color="white" />
-            :
-            <MaterialCommunityIcons name="eye-off" size={24} color="white" />
-          }
-          onPressIcon={() => setShowPassword(!showPassword)}
-        />
-
-        <TouchableWithoutFeedback>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Login now</Text>
+      <LinearGradient colors={['#969696', '#969696', '#969696', '#969696', '#343434', '#343434']}
+        start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
+        style={{
+          borderRadius: 5
+        }}
+      >
+        <View style={styles.modalView}>
+          <View style={styles.header}>
+            <Text style={styles.title}>WELCOME BACK</Text>
+            <Text style={styles.subTitle}>Log into your account</Text>
           </View>
-        </TouchableWithoutFeedback>
+          <View style={styles.inputField}>
+            <InputField title='Email or Username' placeholder='Enter your email' />
+            <InputField title='Password' subTitle='Forgot password?'
+              placeholder='Your supersafe password'
+              showPassword={showPassword}
+              icon={showPassword ?
+                <MaterialCommunityIcons name="eye" size={24} color="white" />
+                :
+                <MaterialCommunityIcons name="eye-off" size={24} color="white" />
+              }
+              onPressIcon={() => setShowPassword(!showPassword)}
+            />
 
-        <TouchableWithoutFeedback onPress={() => navigation.replace('Register')}>
-          <View style={styles.footer}>
-            <Text style={styles.notRegister}>Not registered yet? </Text>
-            <Text style={styles.register}>Register →</Text>
+            <TouchableWithoutFeedback>
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Login now</Text>
+              </View>
+            </TouchableWithoutFeedback>
+
+            <TouchableWithoutFeedback onPress={() => navigation.replace('Register')}>
+              <View style={styles.footer}>
+                <Text style={styles.notRegister}>Not registered yet? </Text>
+                <Text style={styles.register}>Register →</Text>
+              </View>
+            </TouchableWithoutFeedback>
           </View>
-        </TouchableWithoutFeedback>
-      </View>
+        </View>
+      </LinearGradient>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: '#131319',
+    padding: 16,
+  },
+  logoContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: 40
+  },
   modalView: {
     padding: 15,
     backgroundColor: '#27292D',
-    position: 'absolute',
-    right: 0,
-    left: 0,
-    bottom: 0,
-    borderTopStartRadius: 8,
-    borderTopEndRadius: 8,
-    borderTopWidth: 1,
-    borderColor: '#969696'
-  },
-  modalClose: {
-    display: 'flex',
-    flexDirection: 'row-reverse',
-  },
-  modalCloseIcon: {
-    backgroundColor: '#000',
-    padding: 5,
-    borderRadius: 15
+    margin: 2
   },
   header: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 25
   },
   title: {
     color: '#6B6C70'
