@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderTopStartRadius: 8,
     borderTopEndRadius: 8,
-    borderWidth: 1,
+    borderTopWidth: 1,
     borderColor: '#969696'
   },
   modalClose: {
