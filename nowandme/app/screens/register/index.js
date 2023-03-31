@@ -21,11 +21,11 @@ const Register = ({ navigation }) => {
         <InputField title='Password'
           placeholder='Choose a preferred password'
           icon={<MaterialCommunityIcons name="eye" size={24} color="white" />} />
-        <View style={styles.buttonContainer}>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Continue</Text>
-          </Pressable>
-        </View>
+        <TouchableWithoutFeedback>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Login now</Text>
+          </View>
+        </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => navigation.replace('Login')}>
           <View style={styles.footer}>
             <Text style={styles.notRegister}>Already have an account? </Text>
@@ -74,15 +74,13 @@ const styles = StyleSheet.create({
   inputField: {
     marginTop: 14
   },
-  buttonContainer: {
-    marginTop: 20
-  },
   button: {
     backgroundColor: '#4A96FF',
-    width: '100%',
     display: 'flex',
     padding: 10,
     borderRadius: 4,
+    marginTop: 20,
+    alignItems: 'center',
   },
   buttonText: {
     color: '#fff',

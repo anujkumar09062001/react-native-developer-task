@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Pressable } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import InputField from '../../components/InputField'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native';
@@ -28,11 +28,13 @@ const Login = ({ navigation }) => {
           }
           onPressIcon={() => setShowPassword(!showPassword)}
         />
-        <View style={styles.buttonContainer}>
-          <Pressable style={styles.button}>
+
+        <TouchableWithoutFeedback>
+          <View style={styles.button}>
             <Text style={styles.buttonText}>Login now</Text>
-          </Pressable>
-        </View>
+          </View>
+        </TouchableWithoutFeedback>
+
         <TouchableWithoutFeedback onPress={() => navigation.replace('Register')}>
           <View style={styles.footer}>
             <Text style={styles.notRegister}>Not registered yet? </Text>
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderTopStartRadius: 8,
     borderTopEndRadius: 8,
-    borderWidth: 1,
+    borderTopWidth: 1,
     borderColor: '#969696'
   },
   modalClose: {
@@ -81,15 +83,13 @@ const styles = StyleSheet.create({
   inputField: {
     marginTop: 14
   },
-  buttonContainer: {
-    marginTop: 20
-  },
   button: {
     backgroundColor: '#4A96FF',
-    width: '100%',
     display: 'flex',
     padding: 10,
     borderRadius: 4,
+    marginTop: 20,
+    alignItems: 'center',
   },
   buttonText: {
     color: '#fff',
