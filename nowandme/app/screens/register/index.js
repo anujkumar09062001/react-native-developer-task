@@ -6,38 +6,50 @@ import { TouchableWithoutFeedback } from 'react-native';
 
 const Register = ({ navigation }) => {
   return (
-    <View style={styles.modalView}>
-      <View style={styles.modalClose}>
-        <MaterialCommunityIcons name="close-thick" size={20} color="white"
-          onPress={() => navigation.navigate('Home')} style={styles.modalCloseIcon} />
-      </View>
-      <View style={styles.header}>
-        <Text style={styles.title}>SIGN UP</Text>
-        <Text style={styles.subTitle}>Create an account to continue</Text>
-      </View>
-      <View style={styles.inputField}>
-        <InputField title='Email' placeholder='Enter your email' />
-        <InputField title='Username' placeholder='Choose a preferred username' />
-        <InputField title='Password'
-          placeholder='Choose a preferred password'
-          icon={<MaterialCommunityIcons name="eye" size={24} color="white" />} />
-        <TouchableWithoutFeedback>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Login now</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.replace('LoginModal')}>
-          <View style={styles.footer}>
-            <Text style={styles.notRegister}>Already have an account? </Text>
-            <Text style={styles.register}>Login →</Text>
-          </View>
-        </TouchableWithoutFeedback>
+    <View style={styles.container}>
+      <View style={styles.emptySpace} />
+      <View style={styles.modalView}>
+        <View style={styles.modalClose}>
+          <MaterialCommunityIcons name="close-thick" size={20} color="white"
+            onPress={() => navigation.navigate('Home')} style={styles.modalCloseIcon} />
+        </View>
+        <View style={styles.header}>
+          <Text style={styles.title}>SIGN UP</Text>
+          <Text style={styles.subTitle}>Create an account to continue</Text>
+        </View>
+        <View style={styles.inputField}>
+          <InputField title='Email' placeholder='Enter your email' />
+          <InputField title='Username' placeholder='Choose a preferred username' />
+          <InputField title='Password'
+            placeholder='Choose a preferred password'
+            icon={<MaterialCommunityIcons name="eye" size={24} color="white" />} />
+          <TouchableWithoutFeedback>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Login now</Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => navigation.replace('LoginModal')}>
+            <View style={styles.footer}>
+              <Text style={styles.notRegister}>Already have an account? </Text>
+              <Text style={styles.register}>Login →</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
       </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  emptySpace: {
+    backgroundColor: '#fff',
+    height: '100%',
+    width: '100%',
+    opacity: 0.7,
+  },
   modalView: {
     padding: 15,
     backgroundColor: '#27292D',
@@ -48,7 +60,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 8,
     borderTopEndRadius: 8,
     borderTopWidth: 1,
-    borderColor: '#969696'
+    borderColor: '#969696',
   },
   modalClose: {
     display: 'flex',
