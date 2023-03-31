@@ -4,22 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './app/screens/login';
 import Register from './app/screens/register';
-import LoginModal from './app/components/loginModal';
+import LoginModal from './app/screens/login/loginModal';
 
 const RootStack = createStackNavigator();
-
-const config = {
-  // animation: 'spring',
-  config: {
-    // stiffness: 1000,
-    // damping: 500,
-    // mass: 3,
-    // overshootClamping: true,
-    restDisplacementThreshold: 2,
-    // restSpeedThreshold: 1,
-    duration: 0
-  },
-};
 
 export default function App() {
   return (
