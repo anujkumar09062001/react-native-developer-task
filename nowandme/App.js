@@ -7,6 +7,19 @@ import Register from './app/screens/register';
 
 const RootStack = createStackNavigator();
 
+const config = {
+  // animation: 'spring',
+  config: {
+    // stiffness: 1000,
+    // damping: 500,
+    // mass: 3,
+    // overshootClamping: true,
+    restDisplacementThreshold: 2,
+    // restSpeedThreshold: 1,
+    duration: 0
+  },
+};
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -17,7 +30,19 @@ export default function App() {
         <RootStack.Group
           screenOptions={{
             presentation: 'transparentModal',
-            headerShown: false
+            headerShown: false,
+            transitionSpec: {
+              open: {
+                config: {
+                  duration: 0
+                }
+              },
+              close: {
+                config: {
+                  duration: 0
+                }
+              }
+            }
           }}
         >
           <RootStack.Screen name='Login' component={Login} />

@@ -23,7 +23,7 @@ const CreatePost = ({ navigation }) => {
         </View>
 
         <View style={styles.footer}>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('Register')}>
             <Text style={styles.buttonTest}>Post</Text>
           </Pressable>
         </View>
