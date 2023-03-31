@@ -44,7 +44,7 @@ const Login = ({ navigation }) => {
               </View>
             </TouchableWithoutFeedback>
 
-            <TouchableWithoutFeedback onPress={() => navigation.replace('Register')}>
+            <TouchableWithoutFeedback>
               <View style={styles.footer}>
                 <Text style={styles.notRegister}>Not registered yet? </Text>
                 <Text style={styles.register}>Register →</Text>
